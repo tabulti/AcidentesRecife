@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_acidentes"
+            android:icon="@drawable/ic_gps_fixed_black_24dp"
+            android:title="Acidentes" />
+        <item
+            android:id="@+id/nav_ferramentas"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Ferramentas" />
+    </group>
+
+    <item android:title="Comunique">
+        <menu>
+            <item
+                android:id="@+id/nav_notificar"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Enviar registro de acidente" />
+            <item
+                android:id="@+id/nav_feedback"
+                android:icon="@drawable/ic_feedback_black_24dp"
+                android:title="Feedback" />
+        </menu>
+    </item>
+
+</menu>
