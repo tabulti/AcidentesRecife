@@ -11,12 +11,17 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.joaopaulodribeiro.acidentesrecife.R;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+
+import java.text.DateFormat;
+import java.util.Date;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -35,6 +40,8 @@ public class GoogleMapsFragment extends Fragment implements OnMapReadyCallback{
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    String mLastUpdateTime;
 
     private OnFragmentInteractionListener mListener;
 
@@ -77,29 +84,35 @@ public class GoogleMapsFragment extends Fragment implements OnMapReadyCallback{
 
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
-    }
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        LatLng marker = new LatLng(-33.867, 151.206);
+        LatLng marker= new LatLng(-33.867, 151.206);
+        //Location mCurrentLocation = googleMap.getMyLocation();
 
         //1 - satélite
         //2 - earth
         //[..]
         googleMap.setMapType(1);
 
+//        marker = new LatLng(mCurrentLocation.getLatitude(), mCurrentLocation.getLongitude());
+
         googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(marker, 13));
 
         googleMap.addMarker(new MarkerOptions().title("Hello Google Maps").position(marker));
+
+
+
+        /* mLatitudeTextView.setText(String.valueOf(mCurrentLocation.getLatitude()));
+        mLongitudeTextView.setText(String.valueOf(mCurrentLocation.getLongitude()));
+        mLastUpdateTimeTextView.setText(mLastUpdateTime);*/
     }
+
 
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
+
+
 }
